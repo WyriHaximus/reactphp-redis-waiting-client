@@ -1,6 +1,6 @@
 {
-    "name": "php-di-definitions/clue-redis-client",
-    "description": "PHP-DI definition for clue/redis-react",
+    "name": "wyrihaximus/react-redis-waiting-client",
+    "description": "Waiting client around clue/redis-react",
     "require": {
         "php": "^7.2",
         "clue/redis-react": "^2.2",
@@ -8,16 +8,17 @@
         "wyrihaximus/psr-3-callable-throwable-logger": "^1.0"
     },
     "require-dev": {
-        "api-clients/test-utilities": "^5.1"
+        "api-clients/cs-fixer-config": "^1.1",
+        "api-clients/test-utilities": "^5.2"
     },
     "autoload": {
         "psr-4": {
-            "PHPDIDefinitions\\Clue\\Redis\\Client\\": "src/"
+            "WyriHaximus\\React\\Redis\\WaitingClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PHPDIDefinitions\\Tests\\Clue\\Redis\\Client\\": "tests/"
+            "WyriHaximus\\React\\Tests\\Redis\\WaitingClient\\": "tests/"
         }
     },
     "extra": {

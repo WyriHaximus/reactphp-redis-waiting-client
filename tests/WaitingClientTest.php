@@ -1,22 +1,25 @@
 <?php declare(strict_types=1);
 
-namespace PHPDIDefinitions\Tests\Clue\Redis\Client;
+namespace WyriHaximus\React\Tests\Redis\WaitingClient;
 
 use ApiClients\Tools\TestUtilities\TestCase;
 use Clue\React\Redis\Client;
 use Clue\React\Redis\Factory;
-use PHPDIDefinitions\Clue\Redis\Client\WaitingClient;
 use Prophecy\Argument;
 use Psr\Log\LoggerInterface;
 use React\EventLoop\LoopInterface;
 use React\Promise\Deferred;
+use WyriHaximus\React\Redis\WaitingClient\WaitingClient;
 use function React\Promise\resolve;
 
+/**
+ * @internal
+ */
 final class WaitingClientTest extends TestCase
 {
     private const DSN = 'redis://::1/13';
 
-    public function testCreate()
+    public function testCreate(): void
     {
         $loop = $this->prophesize(LoopInterface::class);
 
@@ -29,7 +32,7 @@ final class WaitingClientTest extends TestCase
         WaitingClient::create($loop->reveal(), self::DSN, $logger->reveal());
     }
 
-    public function testLogging()
+    public function testLogging(): void
     {
         $logger = $this->prophesize(LoggerInterface::class);
         $logger->debug('Connecting')->shouldBeCalled();
@@ -43,7 +46,7 @@ final class WaitingClientTest extends TestCase
         new WaitingClient($redisFactory->reveal(), self::DSN, $logger->reveal());
     }
 
-    public function testCalls()
+    public function testCalls(): void
     {
         $logger = $this->prophesize(LoggerInterface::class);
         $logger->debug(Argument::type('string'))->shouldBeCalled();

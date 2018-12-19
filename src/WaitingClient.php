@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace PHPDIDefinitions\Clue\Redis\Client;
+namespace WyriHaximus\React\Redis\WaitingClient;
 
 use Clue\React\Redis\Client;
 use Clue\React\Redis\Factory;
@@ -37,7 +37,7 @@ final class WaitingClient implements Client
     {
         $this->callQueue = new \SplQueue();
         $logger->debug('Connecting');
-        $factory->createClient($dsn)->done(function (Client $client) use ($logger) {
+        $factory->createClient($dsn)->done(function (Client $client) use ($logger): void {
             $logger->debug('Connected');
             $this->redis = $client;
 
@@ -74,12 +74,12 @@ final class WaitingClient implements Client
         return new self(new Factory($loop), $dsn, $logger ?? new NullLogger());
     }
 
-    public function end()
+    public function end(): void
     {
         // TODO: Implement end() method.
     }
 
-    public function close()
+    public function close(): void
     {
         // TODO: Implement close() method.
     }
