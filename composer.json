@@ -1,6 +1,7 @@
 {
     "name": "wyrihaximus/react-redis-waiting-client",
     "description": "Waiting client around clue/redis-react",
+    "license": "MIT",
     "require": {
         "php": "^7.2",
         "clue/redis-react": "^2.2",
@@ -19,13 +20,6 @@
     "autoload-dev": {
         "psr-4": {
             "WyriHaximus\\React\\Tests\\Redis\\WaitingClient\\": "tests/"
-        }
-    },
-    "extra": {
-        "php-di-definitions": {
-            "di": [
-                "etc/di/redis-client.php"
-            ]
         }
     },
     "config": {
